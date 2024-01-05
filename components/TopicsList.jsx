@@ -2,7 +2,6 @@ import Link from 'next/link'
 import RemoveBtn from './RemoveBtn'
 import { HiPencilAlt } from 'react-icons/hi'
 
-
 const getTopics = async () => {
   try {
     const res = await fetch('http://localhost:3000/api/topics', {
@@ -13,9 +12,8 @@ const getTopics = async () => {
       throw new Error('Failed to fetch topics')
     }
 
-    const data  = await res.json()
-    return data;
-    
+    const data = await res.json()
+    return data
   } catch (error) {
     console.log('Error loading topics: ', error)
   }
@@ -43,7 +41,10 @@ export default async function TopicsList () {
                 <h2 className='font-bold text-2xl'>{t.title}</h2>
                 <div>{t.description}</div>
                 <p className='text-gray-500 ml-4'>
-                  Created at: {new Date(t.createdAt * 1000).toLocaleString()}
+                  Created at:{' '}
+                  {t.createdAt
+                    ? new Date(t.createdAt * 1000).toLocaleString()
+                    : 'N/A'}
                 </p>
               </div>
             }

@@ -12,7 +12,7 @@ export default function Navbar () {
           left: 0,
           width: '100vw',
           height: '100vh',
-          zIndex: -1 
+          zIndex: -1
         }}
       >
         <Image
@@ -20,22 +20,30 @@ export default function Navbar () {
           alt='full image'
           quality={100}
           layout='fill'
-          objectFit='cover' 
+          objectFit='cover'
         />
       </div>
 
-      <div
-        className='border border-gray-300 p-2 rounded-[50%] inline-block '
-        style={{ width: '100px', height: '100px' }}
-      >
-        <Image src='/profile.jpg' width={100} height={100} alt='profile-pic' />
+      <div className='flex items-center justify-center'>
+        <div className='border border-gray-300 p-2 rounded-full overflow-hidden'>
+          <Image
+            src='/profile.jpg'
+            width={100}
+            height={100}
+            alt='profile-pic'
+            className='rounded-full'
+          />
+        </div>
       </div>
 
       <div
-        style={{ marginTop: '200px' }}
-        className='flex justify-between items-center bg-gray-400 px-8 py-3'
+        style={{ marginTop: '100px' }}
+        className='flex justify-between items-center text-center border-red-200 isolate w-100 rounded-xl bg-white shadow-lg ring-1 p-5'
       >
-        <Link className='text-white font-bold' href={'/'}> Add Task</Link>
+        <Link className='text-black font-bold ' href={'/'}>
+          {' '}
+          Add New Task
+        </Link>
         <Link className='bg-gray-200 p-2' href={'/addTopic'}>
           <FaPlus style={{ fontSize: '20px' }} />
         </Link>
